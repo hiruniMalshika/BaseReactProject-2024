@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Greetings from "./components/Greetings";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Hello React, This is my base app</h1>
+      <p> Recap the react first</p>
+      <Greetings name="Hiruni" />
+
+      <h1>Counter : {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+
+      <input
+        type="text"
+        placeholder="Type your content"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+
+      <p>You typed {text}</p>
     </div>
   );
 }
